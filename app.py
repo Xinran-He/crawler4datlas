@@ -19,10 +19,10 @@ for file_path in ls_file_path:
     try:
         web_str = web.read()
         web_soup = BeautifulSoup(web_str, 'html.parser')
-        ls_data_table = web_soup.find_all("tr", "art-table-row first even")  # find first row of two tables
+        ls_data_table = web_soup.find_all("div", "cv-structured-list-item cv-structured-list-item--standard bx--structured-list-row")  # find first row of two tables
         table_count = 0
         for data_table in ls_data_table:  # for each table in table list do:
-            ls_item_attribute_soup = data_table.find_next_siblings("tr")  # find all other sibling rows below first row
+            ls_item_attribute_soup = data_table.find_next_siblings("div")  # find all other sibling rows below first row
             ls_item_attribute = []
             for item_attribute in ls_item_attribute_soup:
                 final_output = file_path+", "+"{}".format(table_count)+", "+item_attribute.get_text(", ")
