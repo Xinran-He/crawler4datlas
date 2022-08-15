@@ -11,7 +11,7 @@ def get_file_path(fn_folder_path):
     return fn_ls_file_path
 
 
-folder_path = input("Please input folder path:")
+folder_path = input("Please input folder path: ")
 ls_file_path = get_file_path(folder_path)
 
 for file_path in ls_file_path:
